@@ -6,3 +6,5 @@ dist/*
 .vscode/
 .DS_Store
 */.DS_Store
+config.json
+template/*

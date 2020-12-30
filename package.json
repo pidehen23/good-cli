@@ -1,29 +1,72 @@
 {
-  "name": "good-cli",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@good/cli",
+  "version": "0.0.1",
+  "description": "可选的 Vue、React 项目模板脚手架",
   "main": "./bin/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "license": "ISC",
+  "author": "chenjiajing",
+  "private": false,
+  "homepage": "https://github.com/chenjiajing23/good-cli",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:chenjiajing23/good-cli.git",
+    "directory": "packages/good-cli"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "bin": {
     "good-cli": "./bin/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "prettier": "^2.2.1"
+  "keywords": [
+    "@good/cli",
+    "cli",
+    "react"
+  ],
+  "scripts": {
+    "gc": "git-cz",
+    "fix": "eslint bin lib --ext .jsx,.js --color --fix",
+    "patch": "standard-version -r patch",
+    "minor": "standard-version -r minor",
+    "major": "standard-version -r major",
+    "pub": "npx git push --follow-tags origin master && npx npm publish --access=public"
   },
+  "dependencies": {},
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "chalk": "^4.1.0",
     "commander": "^6.2.1",
+    "commitizen": "^4.2.2",
     "download": "^8.0.0",
+    "eslint": "^7.16.0",
+    "eslint-config-prettier": "^7.1.0",
     "fs-extra": "^9.0.1",
     "handlebars": "^4.7.6",
     "inquirer": "^7.3.3",
+    "lint-staged": "^10.5.3",
     "log-symbols": "^4.0.0",
     "ora": "^5.2.0",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "standard-version": "^9.1.0",
     "update-notifier": "^5.0.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run fix  && lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,jsx}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
