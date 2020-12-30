@@ -1,2 +1,0 @@
-# template-cli
-template-cli
