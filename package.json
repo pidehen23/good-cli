@@ -1,5 +1,5 @@
 {
-  "name": "@good/cli",
+  "name": "tp-good-cli",
   "version": "0.0.1",
   "description": "可选的 Vue、React 项目模板脚手架",
   "main": "./bin/index.js",
