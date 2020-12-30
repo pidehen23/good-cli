@@ -6,6 +6,7 @@
   "license": "ISC",
   "author": "chenjiajing",
   "private": false,
+  "bugs": "https://github.com/chenjiajing23/good-cli/issues",
   "homepage": "https://github.com/chenjiajing23/good-cli",
   "repository": {
     "type": "git",
@@ -31,7 +32,6 @@
     "major": "standard-version -r major",
     "pub": "npx git push --follow-tags origin master && npx npm publish --access=public"
   },
-  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
