@@ -7,4 +7,7 @@ dist/*
 .DS_Store
 */.DS_Store
 config.json
+template
 template/*
+react
+vue
