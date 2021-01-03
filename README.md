@@ -25,7 +25,7 @@ $ good create app-name
 
 # Parameter
 
-## init <PROJECT_NAME>
+## create <APP_NAME>
 
 Create the JavaScript plugin project:
 
