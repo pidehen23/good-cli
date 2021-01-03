@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/chenjiajing23/good-cli/compare/v0.0.3...v0.0.4) (2021-01-03)
+
+
+### Features
+
+* 🎸 master ([f4ba6b1](https://github.com/chenjiajing23/good-cli/commit/f4ba6b1bfe9c31262d071301c63c56d06ce2b62d))
+
 ### 0.0.3 (2021-01-03)
 
 
