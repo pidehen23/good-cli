@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /Users/chenjiajing/.yarn/bin/yarn.js
+  /usr/local/bin/node /Users/chenjiajing/.yarn/bin/yarn.js add @types/download-git-repo -D
 
 PATH: 
   /usr/local/maven/apache-maven-3.6.3/bin:/Users/chenjiajing/.yarn/bin:/Users/chenjiajing/.config/yarn/global/node_modules/.bin:/usr/local/opt/sqlite/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin:/usr/local/maven/apache-maven-3.6.3/bin:/Users/chenjiajing/.yarn/bin:/Users/chenjiajing/.config/yarn/global/node_modules/.bin:/usr/local/opt/sqlite/bin:/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/bin:/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/bin
@@ -14,7 +14,17 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: EACCES: permission denied, unlink '/Users/chenjiajing/Desktop/chenjiajing/git-hub/good-cli/node_modules/.bin/JSONStream'
+  Error: https://registry.yarnpkg.com/@types%2fdownload-git-repo: Not found
+      at Request.params.callback [as _callback] (/Users/chenjiajing/.yarn/lib/cli.js:66988:18)
+      at Request.self.callback (/Users/chenjiajing/.yarn/lib/cli.js:140749:22)
+      at Request.emit (events.js:315:20)
+      at Request.<anonymous> (/Users/chenjiajing/.yarn/lib/cli.js:141721:10)
+      at Request.emit (events.js:315:20)
+      at IncomingMessage.<anonymous> (/Users/chenjiajing/.yarn/lib/cli.js:141643:12)
+      at Object.onceWrapper (events.js:421:28)
+      at IncomingMessage.emit (events.js:327:22)
+      at endReadableNT (_stream_readable.js:1327:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
 
 npm manifest: 
   {
@@ -36,12 +46,13 @@ npm manifest:
       "registry": "https://registry.npmjs.org/"
     },
     "bin": {
-      "good-cli": "./bin/index.js"
+      "good": "./bin/good-cli.js"
     },
     "keywords": [
-      "@good/cli",
+      "good",
       "cli",
-      "react"
+      "react",
+      "good-cli"
     ],
     "scripts": {
       "gc": "git-cz",
@@ -51,13 +62,14 @@ npm manifest:
       "major": "standard-version -r major",
       "pub": "npx git push --follow-tags origin master && npx npm publish --access=public"
     },
-    "devDependencies": {
+    "dependencies": {
       "@commitlint/cli": "^11.0.0",
       "@commitlint/config-conventional": "^11.0.0",
       "chalk": "^4.1.0",
       "commander": "^6.2.1",
       "commitizen": "^4.2.2",
       "download": "^8.0.0",
+      "download-git-repo": "^3.0.2",
       "eslint": "^7.17.0",
       "eslint-config-prettier": "^7.1.0",
       "fs-extra": "^9.0.1",
@@ -687,6 +699,16 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/camelcase/download/camelcase-5.3.1.tgz?cache=0&sync_timestamp=1603923709404&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcamelcase%2Fdownload%2Fcamelcase-5.3.1.tgz"
     integrity sha1-48mzFWnhBoEd8kL3FXJaH0xJQyA=
   
+  caw@^2.0.1:
+    version "2.0.1"
+    resolved "https://registry.yarnpkg.com/caw/-/caw-2.0.1.tgz#6c3ca071fc194720883c2dc5da9b074bfc7e9e95"
+    integrity sha512-Cg8/ZSBEa8ZVY9HspcGUYaK63d/bN7rqS3CYCzEGUxuYv6UlmcjzDUz2fCFFHyTvUW5Pk0I+3hkA3iXlIj6guA==
+    dependencies:
+      get-proxy "^2.0.0"
+      isurl "^1.0.0-alpha5"
+      tunnel-agent "^0.6.0"
+      url-to-options "^1.0.1"
+  
   chalk@4.1.0, chalk@^4.0.0, chalk@^4.1.0:
     version "4.1.0"
     resolved "https://registry.npm.taobao.org/chalk/download/chalk-4.1.0.tgz"
@@ -894,6 +916,14 @@ Lockfile:
       inherits "^2.0.3"
       readable-stream "^3.0.2"
       typedarray "^0.0.6"
+  
+  config-chain@^1.1.11:
+    version "1.1.12"
+    resolved "https://registry.yarnpkg.com/config-chain/-/config-chain-1.1.12.tgz#0fde8d091200eb5e808caf25fe618c02f48e4efa"
+    integrity sha512-a1eOIcu8+7lUInge4Rpf/n4Krkf3Dd9lqhljRzII1/Zno/kRtUWnznPO3jOKBmTEktkt3fkxisUcivoj0ebzoA==
+    dependencies:
+      ini "^1.3.4"
+      proto-list "~1.2.1"
   
   configstore@^5.0.1:
     version "5.0.1"
@@ -1241,7 +1271,7 @@ Lockfile:
       pify "^2.3.0"
       yauzl "^2.4.2"
   
-  decompress@^4.2.1:
+  decompress@^4.2.0, decompress@^4.2.1:
     version "4.2.1"
     resolved "https://registry.npm.taobao.org/decompress/download/decompress-4.2.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdecompress%2Fdownload%2Fdecompress-4.2.1.tgz"
     integrity sha1-AH9VzGpiwFWvo3wH62pO4bdz8Rg=
@@ -1341,6 +1371,33 @@ Lockfile:
       find-up "^3.0.0"
       minimatch "^3.0.4"
   
+  download-git-repo@^3.0.2:
+    version "3.0.2"
+    resolved "https://registry.yarnpkg.com/download-git-repo/-/download-git-repo-3.0.2.tgz#8caae24fb2abd6453172deea5619036024f190f6"
+    integrity sha512-N8hWXD4hXqmEcNoR8TBYFntaOcYvEQ7Bz90mgm3bZRTuteGQqwT32VDMnTyD0KTEvb8BWrMc1tVmzuV9u/WrAg==
+    dependencies:
+      download "^7.1.0"
+      git-clone "^0.1.0"
+      rimraf "^3.0.0"
+  
+  download@^7.1.0:
+    version "7.1.0"
+    resolved "https://registry.yarnpkg.com/download/-/download-7.1.0.tgz#9059aa9d70b503ee76a132897be6dec8e5587233"
+    integrity sha512-xqnBTVd/E+GxJVrX5/eUJiLYjCGPwMpdL+jGhGU57BvtcA7wwhtHVbXBeUk51kOpW3S7Jn3BQbN9Q1R1Km2qDQ==
+    dependencies:
+      archive-type "^4.0.0"
+      caw "^2.0.1"
+      content-disposition "^0.5.2"
+      decompress "^4.2.0"
+      ext-name "^5.0.0"
+      file-type "^8.1.0"
+      filenamify "^2.0.0"
+      get-stream "^3.0.0"
+      got "^8.3.1"
+      make-dir "^1.2.0"
+      p-event "^2.1.0"
+      pify "^3.0.0"
+  
   download@^8.0.0:
     version "8.0.0"
     resolved "https://registry.npm.taobao.org/download/download/download-8.0.0.tgz"
@@ -1434,10 +1491,10 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/eslint-visitor-keys/download/eslint-visitor-keys-2.0.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-visitor-keys%2Fdownload%2Feslint-visitor-keys-2.0.0.tgz"
     integrity sha1-If3I+82ceVzAMh8FY3AglXUVEag=
   
-  eslint@^7.16.0:
-    version "7.16.0"
-    resolved "https://registry.npm.taobao.org/eslint/download/eslint-7.16.0.tgz?cache=0&sync_timestamp=1608326905684&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint%2Fdownload%2Feslint-7.16.0.tgz"
-    integrity sha1-p2FgW/mnsy0ku3zeWa6w/XbwYJI=
+  eslint@^7.17.0:
+    version "7.17.0"
+    resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.17.0.tgz#4ccda5bf12572ad3bf760e6f195886f50569adb0"
+    integrity sha512-zJk08MiBgwuGoxes5sSQhOtibZ75pz0J35XTRlZOk9xMffhpA9BTbQZxoXZzOl5zMbleShbGwtw+1kGferfFwQ==
     dependencies:
       "@babel/code-frame" "^7.0.0"
       "@eslint/eslintrc" "^0.2.2"
@@ -1676,10 +1733,24 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/file-type/download/file-type-6.2.0.tgz?cache=0&sync_timestamp=1608546834437&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffile-type%2Fdownload%2Ffile-type-6.2.0.tgz"
     integrity sha1-5QzXXTVv/tTjBtxPW89Sp5kDqRk=
   
+  file-type@^8.1.0:
+    version "8.1.0"
+    resolved "https://registry.yarnpkg.com/file-type/-/file-type-8.1.0.tgz#244f3b7ef641bbe0cca196c7276e4b332399f68c"
+    integrity sha512-qyQ0pzAy78gVoJsmYeNgl8uH8yKhr1lVhW7JbzJmnlRi0I4R2eEDEJZVKG8agpDnLpacwNbDhLNG/LMdxHD2YQ==
+  
   filename-reserved-regex@^2.0.0:
     version "2.0.0"
     resolved "https://registry.npm.taobao.org/filename-reserved-regex/download/filename-reserved-regex-2.0.0.tgz"
     integrity sha1-q/c9+rc10EVECr/qLZHzieu/oik=
+  
+  filenamify@^2.0.0:
+    version "2.1.0"
+    resolved "https://registry.yarnpkg.com/filenamify/-/filenamify-2.1.0.tgz#88faf495fb1b47abfd612300002a16228c677ee9"
+    integrity sha512-ICw7NTT6RsDp2rnYKVd8Fu4cr6ITzGy3+u4vUujPkabyaz+03F24NWEX7fs5fp+kBonlaqPH8fAO2NM+SXt/JA==
+    dependencies:
+      filename-reserved-regex "^2.0.0"
+      strip-outer "^1.0.0"
+      trim-repeated "^1.0.0"
   
   filenamify@^3.0.0:
     version "3.0.0"
@@ -1875,6 +1946,13 @@ Lockfile:
       parse-github-repo-url "^1.3.0"
       through2 "^2.0.0"
   
+  get-proxy@^2.0.0:
+    version "2.1.0"
+    resolved "https://registry.yarnpkg.com/get-proxy/-/get-proxy-2.1.0.tgz#349f2b4d91d44c4d4d4e9cba2ad90143fac5ef93"
+    integrity sha512-zmZIaQTWnNQb4R4fJUEp/FC51eZsc6EkErspy3xtIYStaq8EB/hDIWipxsal+E8rz0qD7f2sL/NA9Xee4RInJw==
+    dependencies:
+      npm-conf "^1.1.0"
+  
   get-stdin@8.0.0:
     version "8.0.0"
     resolved "https://registry.npm.taobao.org/get-stdin/download/get-stdin-8.0.0.tgz?cache=0&sync_timestamp=1599054261857&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fget-stdin%2Fdownload%2Fget-stdin-8.0.0.tgz"
@@ -1916,6 +1994,11 @@ Lockfile:
     version "2.0.6"
     resolved "https://registry.npm.taobao.org/get-value/download/get-value-2.0.6.tgz"
     integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
+  
+  git-clone@^0.1.0:
+    version "0.1.0"
+    resolved "https://registry.yarnpkg.com/git-clone/-/git-clone-0.1.0.tgz#0d76163778093aef7f1c30238f2a9ef3f07a2eb9"
+    integrity sha1-DXYWN3gJOu9/HDAjjyqe8/B6Lrk=
   
   git-raw-commits@2.0.0:
     version "2.0.0"
@@ -2861,7 +2944,7 @@ Lockfile:
     dependencies:
       yallist "^4.0.0"
   
-  make-dir@^1.0.0:
+  make-dir@^1.0.0, make-dir@^1.2.0:
     version "1.3.0"
     resolved "https://registry.npm.taobao.org/make-dir/download/make-dir-1.3.0.tgz"
     integrity sha1-ecEDO4BRW9bSTsmTPoYMp17ifww=
@@ -3147,6 +3230,14 @@ Lockfile:
     version "4.5.0"
     resolved "https://registry.npm.taobao.org/normalize-url/download/normalize-url-4.5.0.tgz?cache=0&sync_timestamp=1602432435724&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnormalize-url%2Fdownload%2Fnormalize-url-4.5.0.tgz"
     integrity sha1-RTNUCH5sqWlXvY9br3U/WYIUISk=
+  
+  npm-conf@^1.1.0:
+    version "1.1.3"
+    resolved "https://registry.yarnpkg.com/npm-conf/-/npm-conf-1.1.3.tgz#256cc47bd0e218c259c4e9550bf413bc2192aff9"
+    integrity sha512-Yic4bZHJOt9RCFbRP3GgpqhScOY4HH3V2P8yBj6CeYq118Qr+BLXqT2JvpJ00mryLESpgOxf5XlFv4ZjXxLScw==
+    dependencies:
+      config-chain "^1.1.11"
+      pify "^3.0.0"
   
   npm-run-path@^4.0.0:
     version "4.0.1"
@@ -3541,6 +3632,11 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/progress/download/progress-2.0.3.tgz?cache=0&sync_timestamp=1599054255267&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fprogress%2Fdownload%2Fprogress-2.0.3.tgz"
     integrity sha1-foz42PW48jnBvGi+tOt4Vn1XLvg=
   
+  proto-list@~1.2.1:
+    version "1.2.4"
+    resolved "https://registry.yarnpkg.com/proto-list/-/proto-list-1.2.4.tgz#212d5bfe1318306a420f6402b8e26ff39647a849"
+    integrity sha1-IS1b/hMYMGpCD2QCuOJv85ZHqEk=
+  
   pump@^3.0.0:
     version "3.0.0"
     resolved "https://registry.npm.taobao.org/pump/download/pump-3.0.0.tgz"
@@ -3826,7 +3922,7 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/ret/download/ret-0.1.15.tgz"
     integrity sha1-uKSCXVvbH8P29Twrwz+BOIaBx7w=
   
-  rimraf@^3.0.2:
+  rimraf@^3.0.0, rimraf@^3.0.2:
     version "3.0.2"
     resolved "https://registry.npm.taobao.org/rimraf/download/rimraf-3.0.2.tgz?cache=0&sync_timestamp=1599054104695&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frimraf%2Fdownload%2Frimraf-3.0.2.tgz"
     integrity sha1-8aVAK6YiCtUswSgrrBrjqkn9Bho=
@@ -3849,6 +3945,11 @@ Lockfile:
     version "5.1.2"
     resolved "https://registry.npm.taobao.org/safe-buffer/download/safe-buffer-5.1.2.tgz?cache=0&sync_timestamp=1599054209520&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsafe-buffer%2Fdownload%2Fsafe-buffer-5.1.2.tgz"
     integrity sha1-mR7GnSluAxN0fVm9/St0XDX4go0=
+  
+  safe-buffer@^5.0.1:
+    version "5.2.1"
+    resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.2.1.tgz#1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6"
+    integrity sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==
   
   safe-regex@^1.1.0:
     version "1.1.0"
@@ -4442,6 +4543,13 @@ Lockfile:
     version "1.14.1"
     resolved "https://registry.npm.taobao.org/tslib/download/tslib-1.14.1.tgz"
     integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
+  
+  tunnel-agent@^0.6.0:
+    version "0.6.0"
+    resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.6.0.tgz#27a5dea06b36b04a0a9966774b290868f0fc40fd"
+    integrity sha1-J6XeoGs2sEoKmWZ3SykIaPD8QP0=
+    dependencies:
+      safe-buffer "^5.0.1"
   
   type-check@^0.4.0, type-check@~0.4.0:
     version "0.4.0"

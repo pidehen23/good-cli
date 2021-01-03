@@ -1,6 +1,6 @@
 {
   "name": "tp-good-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "可选的 Vue、React 项目模板脚手架",
   "main": "./bin/index.js",
   "license": "ISC",
@@ -17,12 +17,13 @@
     "registry": "https://registry.npmjs.org/"
   },
   "bin": {
-    "good-cli": "./bin/index.js"
+    "good": "./bin/good-cli.js"
   },
   "keywords": [
-    "@good/cli",
+    "good",
     "cli",
-    "react"
+    "react",
+    "good-cli"
   ],
   "scripts": {
     "gc": "git-cz",
@@ -32,13 +33,14 @@
     "major": "standard-version -r major",
     "pub": "npx git push --follow-tags origin master && npx npm publish --access=public"
   },
-  "devDependencies": {
+  "dependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "chalk": "^4.1.0",
     "commander": "^6.2.1",
     "commitizen": "^4.2.2",
     "download": "^8.0.0",
+    "download-git-repo": "^3.0.2",
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
     "fs-extra": "^9.0.1",
@@ -51,7 +53,8 @@
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
     "standard-version": "^9.1.0",
-    "update-notifier": "^5.0.1"
+    "update-notifier": "^5.0.1",
+    "validate-npm-package-name": "^3.0.0"
   },
   "config": {
     "commitizen": {
