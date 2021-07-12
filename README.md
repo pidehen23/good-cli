@@ -41,7 +41,7 @@ Check the new version is available or not:
 $ good upgrade
 ```
 
-## mirror <TEMPLATE_MIRROR>
+## mirror <TEMPLATE_MIRROR> (暂不可用)
 
 You can also set the template mirror like this:
 
@@ -50,4 +50,9 @@ $ good-cli mirror https://github.com/chenjiajing23/
 ```
 
 **NOTE**
-You can customize the template mirror link by yourself
+
+## repo
+[react-template-pc](https://github.com/chenjiajing23/react-template-pc.git)
+[react-template-mobile](https://github.com/chenjiajing23/react-template-mobile.git)
+[vue-template-pc-3.0](https://github.com/chenjiajing23/vue-template-pc-3.0.git)
+[vue-template-pc-2.0](https://github.com/chenjiajing23/vue-template-pc-2.0.git)
